@@ -1,10 +1,4 @@
 const http = require('http')
-const server= http.createServer((req,res)=>{
-    console.log(typeof req);
-    console.log(typeof res);
-    console.log(req.url);
-    console.log(req.method);
-
 const products=[
     {
         id:1,
@@ -24,6 +18,13 @@ const products=[
         
     }
 ]
+const server= http.createServer((req,res)=>{
+    console.log(typeof req);
+    console.log(typeof res);
+    console.log(req.url);
+    console.log(req.method);
+
+
 
     if (req.method=='GET' &&  req.url=="/health"){
         return res.end('server is up and running ') // in node we have to return in order to get reponse 
@@ -33,13 +34,23 @@ const products=[
 
     }else if(req.method=='POST' &&  req.url=="/products"){
         //Create new product
+        let body='';
+        req.on('data',(chunk)=>{
+            body= body+ chunk.toString();
+        });
+
+
+        req.on('end',()=>{
+            console.log(`data is ${body}`);
+        })
+        
         const newProduct={
             id:4,
             name:"Samsung",
             price:"50,000"
         }
         products.push(newProduct);
-        return res.end(products);
+        return res.end(JSON.stringify(products));
 
     }
 })
