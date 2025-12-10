@@ -1,5 +1,24 @@
 {
-    "todos":[{"id":1,"task":"learn backend","status":"not started yet"},
-             {"id":3,"task":"learn http","status":"Completed"},
-            {"id":2,"task":"learn fs","status":"ongoing"}]
+    "todos": [
+        {
+            "id": 1,
+            "task": "learn backend",
+            "status": "not started yet"
+        },
+        {
+            "id": 3,
+            "task": "learn http",
+            "status": "Completed"
+        },
+        {
+            "id": 2,
+            "task": "learn fs",
+            "status": "ongoing"
+        },
+        {
+            "id": 4,
+            "task": "Learn express",
+            "status": "ongoing"
+        }
+    ]
 }
