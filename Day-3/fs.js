@@ -1,0 +1,1 @@
+//fs module is used to read file , it come with node 
