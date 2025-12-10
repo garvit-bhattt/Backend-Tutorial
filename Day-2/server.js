@@ -95,6 +95,7 @@ const server= http.createServer((req,res)=>{
             res.statusCode= 404;
             return res.end("Product not found")
         }
+        
 
         //storing body we get from request
         let body='';
@@ -116,6 +117,7 @@ const server= http.createServer((req,res)=>{
         })
     }
 })
+                 // use this to set header res.setHeader('content-type','json')
 
 
 const PORT= 5000
