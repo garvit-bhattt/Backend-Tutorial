@@ -1,18 +1,16 @@
 const express= require('express');
 const taskRouter= express.Router();
+const { getTasks, setTasks } = require("./functions");
 
 
-taskRouter.get("/health", (req, res) => {
-  res.json({ message: "Server is up and running" });
-});
 
 //GET method
-taskRouter.get("/tasks", (req, res) => {
+taskRouter.get("/", (req, res) => {
     const data = getTasks();
     res.json(data);
 });
 //POST method
-taskRouter.post("/tasks", (req, res) => {
+taskRouter.post("/", (req, res) => {
   const body = req.body;
   const data= getTasks();
   //setting id by checking the value of last id
@@ -32,3 +30,4 @@ taskRouter.post("/tasks", (req, res) => {
 
 });
 
+module.exports={taskRouter};
