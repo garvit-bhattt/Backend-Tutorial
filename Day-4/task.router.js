@@ -20,7 +20,7 @@ taskRouter.post("/", (req, res) => {
   data.todos.push(newTask);
   //saving the data
   setTasks(data);
-
+  // sending the status code as response 
   res.status(201).json({
   message: "Task added successfully",
   task: newTask
